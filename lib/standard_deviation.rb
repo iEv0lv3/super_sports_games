@@ -2,7 +2,7 @@
 
 # Your code here for calculating the standard deviation
 class StandardDeviation
-  attr_reader :ages, :sum_of_ages, :number_of_ages, :average_of_ages, :subtracted_ages
+  attr_reader :ages, :sum_of_ages, :number_of_ages, :average_of_ages, :subtracted_ages, :squared_numbers
 
   def initialize(ages)
     @ages = ages
@@ -10,6 +10,7 @@ class StandardDeviation
     @number_of_ages = count_number_of_ages
     @average_of_ages = calculate_average_of_ages
     @subtracted_ages = subtract_each_integer_by_average
+    @squared_numbers = square
   end
 
   def calculate_sum_of_ages
@@ -30,6 +31,14 @@ class StandardDeviation
       subtracted_nums << (age - self.average_of_ages).round(1)
     end
     subtracted_nums
+  end
+
+  def square
+    squared_numbers = []
+    self.subtracted_ages.each do |num|
+      squared_numbers << (num ** 2).round(2)
+    end
+    squared_numbers
   end
 end
 # When you find the standard deviation, print it out
