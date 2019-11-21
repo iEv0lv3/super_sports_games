@@ -24,4 +24,12 @@ class StandardDeviationTest < Minitest::Test
 
     assert_equal 26.6, deviation.average_of_ages
   end
+
+  def test_subtract_each_integer_by_average
+    ages = [24, 30, 18, 20, 41]
+    deviation = StandardDeviation.new(ages)
+
+
+    assert_equal [-2.6, 3.4, -8.6, -6.6, 14.4], deviation.subtracted_ages
+  end
 end
